@@ -1,4 +1,4 @@
-const containsDuplicate = function(nums) {
+const prev = function(nums) {
     let isValid = false;
     let sorted = nums.sort((a,b) => a-b);
     
@@ -10,4 +10,18 @@ const containsDuplicate = function(nums) {
     };
     
     return isValid;
+};
+
+// Updated solution using hashing:
+
+const containsDuplicate = function(nums) {
+  let map = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (map.hasOwnProperty(nums[i])) {
+      return true
+    } else {
+      map[nums[i]] = i;
+    }
+  }
+  return false
 };
